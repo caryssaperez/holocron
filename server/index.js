@@ -1,5 +1,3 @@
-import { WSAEPFNOSUPPORT } from 'constants';
-
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load();
 }
