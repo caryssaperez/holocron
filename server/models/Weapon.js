@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const weaponSchema = new Schema({
-  name: String
+  name: String,
+  damage: Integer
 });
 
 mongoose.model('weapons', weaponSchema);
