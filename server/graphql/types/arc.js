@@ -1,7 +1,5 @@
-const GraphQLObjectType = require('graphql').GraphQLObjectType;
-const GraphQLNonNull = require('graphql').GraphQLNonNull;
-const GraphQLID = require('graphql').GraphQLID;
-const GraphQLString = require('graphql').GraphQLString;
+const graphql = require('graphql');
+const { GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLString } = graphql;
 
 exports.arcType = new GraphQLObjectType({
   name: 'arc',
