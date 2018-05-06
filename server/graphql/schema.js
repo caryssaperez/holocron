@@ -2,7 +2,8 @@ const _ = require('lodash');
 const graphql = require('graphql');
 const { GraphQLObjectType, GraphQLSchema, GraphQLID } = graphql;
 
-const ArcType = require('./types/arc');
+const { ArcType, EventType } = require('./types');
+const Arc = require('../models/Arc');
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQuery',
