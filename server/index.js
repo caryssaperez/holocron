@@ -7,7 +7,14 @@ const mongoose = require('mongoose');
 const graphqlHTTP = require('express-graphql');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+
 require('./models/User');
+require('./models/Event');
+require('./models/Arc');
+require('./models/Weapon');
+
+const schema = require('./graphql/schema');
+
 require('./services/googleAuth');
 require('./services/facebookAuth');
 
@@ -24,6 +31,14 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true
+  })
+);
 
 require('./routes/authRoutes')(app);
 

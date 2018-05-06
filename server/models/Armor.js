@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const armorSchema = new Schema({
   name: String,
   type: String,
-  rating: Integer
+  rating: Number
 });
 
 mongoose.model('armor', armorSchema);

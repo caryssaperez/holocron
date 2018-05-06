@@ -7,13 +7,14 @@ const {
   GraphQLList
 } = graphql;
 
-const Arc = require('../../models/Arc');
+const Event = require('../../models/Event');
 
 const EventType = new GraphQLObjectType({
   name: 'event',
   fields: () => ({
     id: { type: new GraphQLNonNull(GraphQLID) },
-    title: { type: new GraphQLNonNull(GraphQLString) }
+    title: { type: new GraphQLNonNull(GraphQLString) },
+    arcId: { type: new GraphQLNonNull(GraphQLID) }
   })
 });
 
@@ -22,12 +23,14 @@ const ArcType = new GraphQLObjectType({
   fields: () => ({
     id: { type: new GraphQLNonNull(GraphQLID) },
     title: { type: GraphQLString },
-    user: { type: new GraphQLNonNull(GraphQLID) },
+    _user: { type: new GraphQLNonNull(GraphQLID) },
     events: {
       type: new GraphQLList(EventType),
       resolve(parent, args) {
-        return Arc.findBy({ user: args.user });
+        return Event.findBy({ arcId: args.arcId });
       }
     }
   })
 });
+
+module.exports = { EventType, ArcType };

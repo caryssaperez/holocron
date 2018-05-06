@@ -1,19 +1,19 @@
-const _ = require('lodash');
 const graphql = require('graphql');
-const { GraphQLObjectType, GraphQLSchema, GraphQLID } = graphql;
+const mongoose = require('mongoose');
+const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLList } = graphql;
 
 const { ArcType, EventType } = require('./types');
-const Arc = require('../models/Arc');
+const Arc = mongoose.model('arcs');
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQuery',
   fields: {
-    arc: {
-      type: ArcType,
-      args: { id: { type: GraphQLID } },
+    arcs: {
+      type: new GraphQLList(ArcType),
+      args: { userId: { type: GraphQLID } },
       resolve(parent, args) {
-        // Add code to retrieve record from mongo collection
-        return;
+        let castId = mongoose.Types.ObjectId(args.userId);
+        return Arc.find({ _user: castId });
       }
     }
   }

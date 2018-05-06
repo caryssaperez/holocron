@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const weaponSchema = new Schema({
   name: String,
-  damage: Integer
+  damage: Number
 });
 
-mongoose.model('weapons', weaponSchema);
+module.exports = mongoose.model('weapons', weaponSchema);
