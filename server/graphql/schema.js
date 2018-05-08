@@ -4,6 +4,7 @@ const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLList } = graphql;
 
 const { ArcType, EventType } = require('./types');
 const Arc = mongoose.model('arcs');
+const Event = mongoose.model('events');
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQuery',
@@ -19,6 +20,43 @@ const RootQuery = new GraphQLObjectType({
   }
 });
 
+const Mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addArc: {
+      type: ArcType,
+      args: {
+        title: { type: new GraphQLNonNull(GraphQLString) },
+        _user: { type: new GraphQLNonNull(GraphQLInteger) }
+      },
+      resolve(parent, args) {
+        let arc = new Arc({
+          title: args.title,
+          events: args.events
+        });
+
+        return arc.save();
+      }
+    },
+    addEvent: {
+      type: EventType,
+      args: {
+        title: { type: new GraphQLNonNull(GraphQLString) },
+        arcId: { type: new GraphQLNonNull(GraphQLInteger) }
+      },
+      resolve(parent, args) {
+        let event = new Event({
+          title: args.title,
+          arcId: args.arcId
+        });
+
+        return event.save();
+      }
+    }
+  }
+});
+
 module.exports = new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
+  mutation: Mutation
 });
