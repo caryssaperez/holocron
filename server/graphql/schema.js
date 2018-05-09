@@ -1,6 +1,14 @@
 const graphql = require('graphql');
 const mongoose = require('mongoose');
-const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLList } = graphql;
+const {
+  GraphQLObjectType,
+  GraphQLSchema,
+  GraphQLID,
+  GraphQLList,
+  GraphQLNonNull,
+  GraphQLString,
+  GraphQLInt
+} = graphql;
 
 const { ArcType, EventType } = require('./types');
 const Arc = mongoose.model('arcs');
@@ -27,7 +35,7 @@ const Mutation = new GraphQLObjectType({
       type: ArcType,
       args: {
         title: { type: new GraphQLNonNull(GraphQLString) },
-        _user: { type: new GraphQLNonNull(GraphQLInteger) }
+        _user: { type: new GraphQLNonNull(GraphQLInt) }
       },
       resolve(parent, args) {
         let arc = new Arc({
@@ -42,7 +50,7 @@ const Mutation = new GraphQLObjectType({
       type: EventType,
       args: {
         title: { type: new GraphQLNonNull(GraphQLString) },
-        arcId: { type: new GraphQLNonNull(GraphQLInteger) }
+        arcId: { type: new GraphQLNonNull(GraphQLInt) }
       },
       resolve(parent, args) {
         let event = new Event({
