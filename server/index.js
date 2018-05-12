@@ -16,7 +16,6 @@ require('./models/Weapon');
 const schema = require('./graphql/schema');
 
 require('./services/googleAuth');
-require('./services/facebookAuth');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URI);

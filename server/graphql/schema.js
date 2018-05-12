@@ -40,7 +40,7 @@ const Mutation = new GraphQLObjectType({
       resolve(parent, args) {
         let arc = new Arc({
           title: args.title,
-          events: args.events
+          _user: args.userId
         });
 
         return arc.save();

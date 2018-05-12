@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from 'reactstrap';
 
 class Header extends Component {
   renderContent() {
@@ -14,17 +8,7 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return [
-          <li key="defaultAuth">
-            <Link to="/auth/default">Login</Link>
-          </li>,
-          <li key="googleAuth">
-            <a href="/auth/google">Login with Google</a>
-          </li>,
-          <li key="facebookAuth">
-            <a href="/auth/facebook">Login with Facebook</a>
-          </li>
-        ];
+        return;
       default:
         return [
           <li key="logout">
@@ -36,33 +20,17 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
-        <ul className="right dropdown-content" id="dropdown1">
-          {this.renderContent()}
-        </ul>
-        <nav>
-          <div className="nav-wrapper">
-            <Link
-              to={this.props.auth ? '/campaigns' : '/'}
-              className="left brand-logo"
-            >
-              Holocron
-            </Link>
-            <ul className="right hide-on-med-and-down">
-              <li>
-                <a
-                  className="dropdown-trigger"
-                  href="#!"
-                  data-target="dropdown1"
-                >
-                  Login
-                  <i className="material-icons right">arrow_drop_down</i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <nav>
+        <div className="nav-wrapper">
+          <Link
+            to={this.props.auth ? '/campaigns' : '/'}
+            className="left brand-logo"
+          >
+            Holocron
+          </Link>
+          <ul className="right hide-on-med-and-down">{this.renderContent()}</ul>
+        </div>
+      </nav>
     );
   }
 }

@@ -17,20 +17,14 @@ module.exports = app => {
     }
   );
 
-  // Facebook routes.
-  app.get(
-    '/auth/facebook',
-    passport.authenticate('facebook', {
-      scope: ['profile', 'email']
+  // Local auth routes.
+  app.post(
+    '/login',
+    passport.authenticate('local', {
+      successRedirect: '/campaigns',
+      failureRedirect: '/login',
+      failureFlash: true
     })
-  );
-
-  app.get(
-    '/auth/facebook/callback',
-    passport.authenticate('facebook'),
-    (req, res) => {
-      res.redirect('/');
-    }
   );
 
   app.get('/api/logout', (req, res) => {
