@@ -3,9 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from './Header';
+import Landing from './Landing';
 import * as actions from '../actions/index';
-
-const Landing = () => <h2>Landing</h2>;
 
 class App extends Component {
   componentDidMount() {
