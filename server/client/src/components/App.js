@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Header from './Header';
 import Landing from './Landing';
 import * as actions from '../actions/index';
+import SignUpForm from './auth/SignUpForm';
 
 class App extends Component {
   componentDidMount() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Header />
             <div className="container">
               <Switch>
+                <Route path="/signup" component={SignUpForm} />
                 <Route path="/" component={Landing} />
               </Switch>
             </div>

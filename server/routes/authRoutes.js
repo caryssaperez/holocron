@@ -29,7 +29,13 @@ module.exports = app => {
 
   // Sign up route.
   app.post('/api/signup', (req, res) => {
-    const user = await new User({ username: req.username }).save();
+    const user = await new User({
+      username: req.username,
+      password: req.password,
+      email: req.email
+    }).save();
+
+    res.redirect('/login');
   })
 
   app.get('/api/logout', (req, res) => {
