@@ -19,13 +19,18 @@ module.exports = app => {
 
   // Local auth routes.
   app.post(
-    '/login',
+    '/api/login',
     passport.authenticate('local', {
       successRedirect: '/campaigns',
       failureRedirect: '/login',
       failureFlash: true
     })
   );
+
+  // Sign up route.
+  app.post('/api/signup', (req, res) => {
+    const user = await new User({ username: req.username }).save();
+  })
 
   app.get('/api/logout', (req, res) => {
     req.logout();
