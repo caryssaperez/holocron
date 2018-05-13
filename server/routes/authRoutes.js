@@ -1,4 +1,7 @@
 const passport = require('passport');
+const mongoose = require('mongoose');
+
+const User = mongoose.model('users');
 
 module.exports = app => {
   // Google routes.
@@ -28,15 +31,17 @@ module.exports = app => {
   );
 
   // Sign up route.
-  app.post('/api/signup', (req, res) => {
+  app.post('/api/signup', async (req, res) => {
+    const { username, password, email } = req.body;
+
     const user = await new User({
-      username: req.username,
-      password: req.password,
-      email: req.email
+      username,
+      password,
+      email
     }).save();
 
-    res.redirect('/login');
-  })
+    res.send('fuck yeah');
+  });
 
   app.get('/api/logout', (req, res) => {
     req.logout();

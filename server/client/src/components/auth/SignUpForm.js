@@ -24,9 +24,7 @@ class SignUpForm extends Component {
   }
 
   onSubmit(values) {
-    this.props.createPost(values, () => {
-      this.props.history.push('/login');
-    });
+    this.props.createUser(values, this.props.history);
   }
 
   render() {
