@@ -1,14 +1,11 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
 
 import SurveyField from '../shared/FormField';
-import formFields from './signUpFormFields';
-import validateEmails from '../../utils/validateEmails';
-import { createUser } from '../../actions';
+import formFields from './loginFormFields';
 
-class SignUpForm extends Component {
+class LoginForm extends Component {
   renderFields() {
     return _.map(formFields, ({ label, name, type }) => {
       return (
@@ -24,7 +21,7 @@ class SignUpForm extends Component {
   }
 
   onSubmit(values) {
-    this.props.createUser(values, this.props.history);
+    // Add POST to login route
   }
 
   render() {
@@ -41,7 +38,7 @@ class SignUpForm extends Component {
             type="submit"
             className="teal btn-flat white-text center-align"
           >
-            Sign Up
+            Login
           </button>
         </form>
       </div>
@@ -49,21 +46,6 @@ class SignUpForm extends Component {
   }
 }
 
-function validate(values) {
-  const errors = {};
-
-  errors.email = validateEmails(values.email || '');
-
-  _.each(formFields, ({ name, noValueError }) => {
-    if (!values[name]) {
-      errors[name] = noValueError;
-    }
-  });
-
-  return errors;
-}
-
 export default reduxForm({
-  validate,
-  form: 'signUpForm'
-})(connect(null, { createUser })(SignUpForm));
+  form: 'loginForm'
+})(connect(null)(LoginForm));
