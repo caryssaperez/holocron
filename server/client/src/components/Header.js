@@ -8,7 +8,11 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return;
+        return [
+          <li key="login">
+            <a href="/login">Login</a>
+          </li>
+        ];
       default:
         return [
           <li key="logout">

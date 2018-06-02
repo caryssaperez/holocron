@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import SurveyField from '../shared/FormField';
 import formFields from './loginFormFields';
@@ -34,13 +36,13 @@ class LoginForm extends Component {
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
           {this.renderFields()}
-          <button
-            type="submit"
-            className="teal btn-flat white-text center-align"
-          >
+          <button type="submit" className="teal btn-flat white-text">
             Login
           </button>
         </form>
+        <div className="card-action center-align">
+          Don't have an account yet? <Link to="/signup">Sign up here.</Link>
+        </div>
       </div>
     );
   }

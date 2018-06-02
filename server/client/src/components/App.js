@@ -6,6 +6,7 @@ import Header from './Header';
 import Landing from './Landing';
 import * as actions from '../actions/index';
 import SignUpForm from './auth/SignUpForm';
+import LoginForm from './login/LoginForm';
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route path="/signup" component={SignUpForm} />
+                <Route path="/login" component={LoginForm} />
                 <Route path="/" component={Landing} />
               </Switch>
             </div>

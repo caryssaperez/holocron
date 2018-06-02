@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
-class Landing extends Component {
-  render() {
-    return <div>Hey girl hey</div>;
-  }
-}
+const Landing = () => {
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <h1>Holocron</h1>
+      All the role-playing, none of the overhead.
+    </div>
+  );
+};
 
-function mapStateToProps({ auth }) {
-  return { auth };
-}
-
-export default connect(mapStateToProps)(Landing);
+export default Landing;
