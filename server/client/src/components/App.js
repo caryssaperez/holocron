@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Header from './Header';
 import Landing from './Landing';
-import * as actions from '../actions/index';
+import * as actions from '../actions';
 import SignUpForm from './auth/SignUpForm';
 import LoginForm from './login/LoginForm';
 
