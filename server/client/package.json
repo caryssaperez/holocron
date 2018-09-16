@@ -10,10 +10,33 @@
       "target": "http://localhost:5000"
     }
   },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "testPathIgnorePatterns": [
+      "jest.setup.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "jest.setup.js",
+      "constants/.*"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/jest.preprocessor.js"
+    },
+    "testMatch": [
+      "**/__tests__/*.(ts|tsx|js)"
+    ]
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ],
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.10",
-    "materialize-css": "^0.100.2",
     "node-sass-chokidar": "^1.3.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -34,11 +57,17 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.14",
+    "@types/jest": "^23.3.2",
     "@types/node": "^10.5.2",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
     "@types/react-redux": "^6.0.4",
     "@types/webpack-env": "^1.13.6",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "jest": "^23.6.0",
+    "react-test-renderer": "^16.5.1",
     "typescript": "^2.9.2"
   }
 }
