@@ -4,12 +4,4 @@ Vanguard is a tabletop science fiction RPG akin to Dungeons & Dragons with all t
 
 ## Stack
 
-### Backend
-
-Nodejs + Express + GraphQL + Mongo
-
-- Will transition to Postgresql soon
-
-### Frontend
-
 React + Apollo + Redux
