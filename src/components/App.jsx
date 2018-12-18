@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Header from './Header';
+import Header from './header/HeaderBar';
 import Landing from './Landing';
 import * as actions from '../actions';
 import SignUpForm from './auth/SignUpForm';
@@ -33,4 +33,7 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+export default connect(
+  null,
+  actions,
+)(App);

@@ -1,13 +1,12 @@
 import React from 'react';
+import styles from './FormField.module.scss';
 
 export default ({ input, label, type, meta: { error, touched } }) => {
   return (
     <div>
       <label>{label}</label>
-      <input {...input} style={{ marginBottom: '5px' }} type={type} />
-      <div className="red-text" style={{ marginBottom: '20px' }}>
-        {touched && error}
-      </div>
+      <input {...input} className={styles.input} type={type} />
+      <div className={styles.errorField}>{touched && error}</div>
     </div>
   );
 };
