@@ -30,7 +30,7 @@ class HeaderBar extends Component {
             to={this.props.auth ? '/arcs' : '/'}
             className="left brand-logo"
           >
-            Holocron
+            Vanguard
           </Link>
           <ul className="right hide-on-med-and-down">{this.renderContent()}</ul>
         </div>
