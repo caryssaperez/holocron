@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apolloFetch } from 'global';
+import { createApolloFetch } from 'apollo-fetch';
 import { CREATE_USER, FETCH_USER } from 'constants/actionTypes';
 
 export const createUser = (values, history) => async dispatch => {
@@ -10,6 +10,7 @@ export const createUser = (values, history) => async dispatch => {
 };
 
 export const fetchUser = id => async dispatch => {
+  const apolloFetch = createApolloFetch({ uri: process.env.GRAPHQL_URI });
   const response = await apolloFetch({
     query: `query($userId: ID!) {
       user(id: $userId) {
