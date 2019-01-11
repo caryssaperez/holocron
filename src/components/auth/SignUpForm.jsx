@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 
-import SurveyField from '../shared/FormField';
-import formFields from './signUpFormFields';
-import validateEmails from '../../utils/validateEmails';
-import { createUser } from '../../actions';
+import SurveyField from 'component/shared/FormField';
+import formFields from 'components/auth/signUpFormFields';
+import validateEmails from 'utils/validateEmails';
+import { createUser } from 'actions';
 
 class SignUpForm extends Component {
   renderFields() {
@@ -65,5 +65,10 @@ function validate(values) {
 
 export default reduxForm({
   form: 'signUpForm',
-  validate
-})(connect(null, { createUser })(SignUpForm));
+  validate,
+})(
+  connect(
+    null,
+    { createUser },
+  )(SignUpForm),
+);

@@ -4,7 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import SurveyField from '../shared/FormField';
+import SurveyField from 'components/shared/FormField';
 import formFields from './loginFormFields';
 
 class LoginForm extends Component {
@@ -49,5 +49,5 @@ class LoginForm extends Component {
 }
 
 export default reduxForm({
-  form: 'loginForm'
+  form: 'loginForm',
 })(connect(null)(LoginForm));
