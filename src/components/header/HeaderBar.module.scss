@@ -1,0 +1,22 @@
+.header {
+  min-height: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.logo {
+  align-self: center;
+  width: 20%;
+  padding: 4px 12px;
+  text-decoration: none;
+}
+
+.menu {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  transition: all 0.5s;
+}
