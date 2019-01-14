@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 
-import SurveyField from 'component/shared/FormField';
+import SurveyField from 'components/shared/FormField';
 import formFields from 'components/auth/signUpFormFields';
 import validateEmails from 'utils/validateEmails';
 import { createUser } from 'actions';

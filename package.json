@@ -22,23 +22,6 @@
     "enzyme-adapter-react-16": "^1.5.0",
     "jest": "^23.6.0"
   },
-  "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
-    "testPathIgnorePatterns": [
-      "jest.setup.js"
-    ],
-    "coveragePathIgnorePatterns": [
-      "jest.setup.js",
-      "constants/.*"
-    ],
-    "moduleFileExtensions": [
-      "jsx",
-      "js"
-    ],
-    "testMatch": [
-      "**/__tests__/*.(jsx|js)"
-    ]
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
