@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './Landing.module.scss';
 
 const Landing = () => {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1>Holocron</h1>
+    <div className={styles.content}>
+      <h1>Welcome to Vanguard</h1>
       All the role-playing, none of the overhead.
     </div>
   );
