@@ -1,7 +1,19 @@
+@import '~styles/variables';
+
 .item {
   align-self: stretch;
   padding: 0 10px;
   display: flex;
   border-bottom: 5px solid transparent;
   margin: 0 5px;
+
+  a {
+    text-decoration: none;
+    color: $regular-font-color;
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: $red;
+  }
 }
